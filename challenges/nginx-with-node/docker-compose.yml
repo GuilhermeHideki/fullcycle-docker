@@ -1,0 +1,23 @@
+version: '3.9'
+
+services:
+  mysql:
+    image: mysql:8
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-ruth}
+      MYSQL_DATABASE: fullcycle
+    volumes:
+      - './mysql/data:/var/lib/mysql'
+
+  app:
+    build:
+      context: ./node
+      dockerfile: Dockerfile
+    container_name: fullcycle-rocks
+    environment:
+      PORT: 3000
+    ports:
+      - 80:3000
+    depends_on:
+      - mysql
