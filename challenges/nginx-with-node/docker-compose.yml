@@ -7,6 +7,8 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-ruth}
       MYSQL_DATABASE: fullcycle
+    ports:
+      - "3306:3306"
     volumes:
       - './mysql/data:/var/lib/mysql'
 
@@ -17,6 +19,11 @@ services:
     container_name: fullcycle-rocks
     environment:
       PORT: 3000
+      MYSQL_HOST: mysql
+      MYSQL_PORT: 3306
+      MYSQL_USER: root
+      MYSQL_PASSWORD: ${MYSQL_ROOT_PASSWORD:-ruth}
+      MYSQL_DATABASE: fullcycle
     ports:
       - 80:3000
     depends_on:
