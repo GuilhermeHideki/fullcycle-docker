@@ -5,6 +5,8 @@
   "scripts": {
     "build": "echo 'build script'"
   },
-
+  "engines": {
+    "node": ">=16"
+  },
   "license": "MIT"
 }
