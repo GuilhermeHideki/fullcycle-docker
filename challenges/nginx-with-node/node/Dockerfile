@@ -10,4 +10,4 @@ EXPOSE 3000
 
 ENTRYPOINT ["node"]
 
-CMD ["dist/index.js"]
+CMD ["index.js"]
