@@ -1,0 +1,10 @@
+{
+  "name": "fullcycle-rocks",
+  "version": "0.0.1",
+  "main": "index.js",
+  "scripts": {
+    "build": "echo 'build script'"
+  },
+
+  "license": "MIT"
+}
