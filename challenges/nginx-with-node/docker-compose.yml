@@ -22,6 +22,9 @@ services:
       - './mysql/data:/var/lib/mysql'
     healthcheck:
       test: mysqladmin ping -h 127.0.0.1 -uroot --password=$$MYSQL_ROOT_PASSWORD
+      interval: 10s
+      timeout: 2s
+      retries: 10
 
   app:
     build:
