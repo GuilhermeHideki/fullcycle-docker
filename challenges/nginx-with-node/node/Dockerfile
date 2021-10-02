@@ -1,13 +1,13 @@
-FROM node:16 as builder
+FROM node:16
 
 WORKDIR /usr/src/app
 
 COPY . .
 
-RUN yarn build
+RUN yarn --production
 
 EXPOSE 3000
 
 ENTRYPOINT ["node"]
 
-CMD ["index.js"]
+CMD ["src/index.mjs"]
