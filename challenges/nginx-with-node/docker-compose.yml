@@ -20,6 +20,8 @@ services:
       - "3306:3306"
     volumes:
       - './mysql/data:/var/lib/mysql'
+    healthcheck:
+      test: mysqladmin ping -h 127.0.0.1 -uroot --password=$$MYSQL_ROOT_PASSWORD
 
   app:
     build:
@@ -34,4 +36,5 @@ services:
       MYSQL_PASSWORD: ${MYSQL_ROOT_PASSWORD:-ruth}
       MYSQL_DATABASE: fullcycle
     depends_on:
-      - mysql
+      mysql:
+        condition: service_healthy
